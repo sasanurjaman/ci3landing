@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file name="jwplayer.js" source="original">
+    <format>Unknown</format>
+    <mtime>1330072843</mtime>
+    <size>154488</size>
+    <md5>e7c5f2df2ee5c136bcd6c6d380756d34</md5>
+    <crc32>54d98c77</crc32>
+    <sha1>bbf856f459f70a44381040c66ea8a81d7ffdc74a</sha1>
+  </file>
+  <file name="Jwplayer.jsFile_meta.xml" source="metadata">
+    <format>Metadata</format>
+    <mtime>1463697227</mtime>
+    <size>673</size>
+    <md5>993e2426a6deb1ed41c74abb17e1383e</md5>
+    <crc32>c91b8586</crc32>
+    <sha1>1c01bc095c3d116d6eb60771f5df3760b3425053</sha1>
+  </file>
+  <file name="Jwplayer.jsFile_archive.torrent" source="metadata">
+    <btih>463adc8344087f49d221a3b85864080c6a371ec9</btih>
+    <mtime>1463697227</mtime>
+    <size>1491</size>
+    <md5>2134c7148727e41dd5a39d1c5981cb64</md5>
+    <crc32>9b2c5aa6</crc32>
+    <sha1>68d2e446ece50a27eaad3333319d2017dbce0461</sha1>
+    <format>Archive BitTorrent</format>
+  </file>
+  <file name="Jwplayer.jsFile_files.xml" source="metadata">
+    <format>Metadata</format>
+    <md5>1d9978fa6382e462a95bbcc163c88a9c</md5>
+  </file>
+</files>

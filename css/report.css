@@ -1,0 +1,179 @@
+/*------------------------------------------------*/
+/*-----------------[BASIC STYLES]-----------------*/
+/*------------------------------------------------*/
+/*[fmt]0A90-1A0A-3*/
+@font-face{
+	font-family: HattoriHanzoLight;
+	src: url('fonts/hattori/hattori_hanzo-webfont.eot');
+	src: url('fonts/hattori/hattori_hanzo-webfont.eot?iefix') format('eot'), url('fonts/hattori/hattori_hanzo-webfont.woff') format('woff'), url('fonts/hattori/hattori_hanzo-webfont.ttf') format('truetype'), url('fonts/hattori/hattori_hanzo-webfont.svg#webfont2bbtnxOL') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+body{
+	font-size: 12px;
+	font-family: Arial, Helvetica, Sans-serif;
+}
+
+a { text-decoration: none; color: #5f5f5f; }
+a:hover { text-decoration: underline; }
+.clear { clear: both; }
+.ui-tabs-hide { display: none; }
+br.clear { margin: 0px; padding: 0px; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; padding-bottom: 5px; color: #000000; line-height: 1em; font-family: Arial; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #000000; }
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+h6 { font-size: 11px; }
+p { font-size:11pt; line-height: 25px; }
+strong { font-weight: bold; color: #1c1c1c; }
+cite, em, i { font-style: italic; }
+pre, code { font-family: Courier New, monospace; margin-bottom: 10px; }
+ins { text-decoration: none; }
+sup, sub { height: 0; line-height: 1; position: relative; vertical-align: baseline; }
+sup { bottom: 0.8em; }
+sub { top: 0.3em; }
+dl { margin: 0 0 1.5em 0; }
+dl dt { font-weight: bold; }
+dd  { margin-left: 1.5em;}
+blockquote  { margin: 1.5em; padding: 1em; color: #666666; background: #e6e6e6; font-style: italic; border: 1px solid #dcdcdc; }
+	blockquote p { padding-bottom: 0px; }
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	font-family: "Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+	border-color: #CCCCCC;
+	border-width: 1px;
+	border-style: solid;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select {	
+	padding: 4px;
+	font-size: 12px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;	
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	padding: 4px 10px;
+	font-size: 11px;
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+p,
+ul,
+ol,
+blockquote,
+input,
+select {
+	font-size: 11px;
+}
+
+select option {
+	padding: 2px;
+}
+
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.floatleft { float: left; }
+.floatright { float: right; }
+.clear { clear: both; }
+
+/*------------------------------------------------*/
+/*---------------[HEADER]---------------*/
+/*------------------------------------------------*/
+header { position: fixed; top: 1cm; left: 1cm; right: 1cm; height: 2.5cm; }
+header h4.caption { text-align: center; }
+header .left { float:left; width:65%; }
+header .left img { float:left; margin-top:5px; padding:0px; width:96px; height:96px; }
+header .left h4 { margin-top:5px; padding:0px; font-weight: bold; text-indent:105px; }
+header .left h5 { margin-top:4px; padding:0px; font-weight: bold; text-indent:105px; }
+header .left h6 { margin-top:4px; padding:0px; font-weight: bold; text-indent:105px;}
+header .right { float:right; width:35%; clear: right; }
+header .right h3 { margin-top:20px; padding:0px; font-weight: bold; text-align:right; text-decoration:underline;}
+header .right h4 { margin-top:5px; padding:0px; font-weight: bold; }
+header .right h5 { margin-top:5px; padding:0px; font-weight: bold; text-indent:5px; }
+header .right h6 { margin-top:4px; padding:0px; font-weight: bold; text-indent:5px;}
+header .right h5.tab { margin-top:4px; text-indent:25px; } 						
+header .right h6.tab { text-indent:25px; }	
+
+/*------------------------------------------------*/
+/*---------------[CONTENT]---------------*/
+/*------------------------------------------------*/
+main { margin:0px; padding: 0px; }
+main h4.caption { font-weight: bold; text-align: center; }
+main .box-body { margin:0px; padding:0px; }
+main .box-body .left { float:left; width:33%; }
+main .box-body .left label { display: inline-block; line-height:15px; font-weight:bold; width:60px;}
+main .box-body .center { float:left; width:34%; text-align:center;}
+main .box-body .center h5 { padding:0px; font-weight: bold; }
+main .box-body .right { float:right; width:33%; }
+main .box-body .right label { display: inline-block; line-height:15px; font-weight:bold; width:60px;}
+
+main .box-body .content {
+	margin:10px; padding:10px;
+	border:1px dashed #000000;
+}
+
+main .box-body table { width: 100%; margin:5px 0px 0px 0px; padding:0px; border-spacing: 0; }
+main .box-body thead th { 
+    border-left:1px dashed #000000; 
+	border-top:1px dashed #000000; 
+	border-bottom:1px dashed #000000; 
+	text-align: center; line-height:18px; 
+	font-weight: bold; 
+	margin:0px; padding:4px; letter-spacing: 1px; }
+main .box-body thead th.borderight, main .box-body tbody td.borderight, main .box-body tfoot td.borderight { border-right: 1px dashed #000000; }
+main .box-body thead th.noneleft, main .box-body tbody td.noneleft, main .box-body tfoot td.noneleft { border-left:0; }
+main .box-body tbody th, main .box-body tbody td, main .box-body tfoot td { line-height: 18px; padding: 4px; }
+main .box-body tbody td, main .box-body tfoot td { border-left:1px dashed #000000; }
+main .box-body tbody td.borderbottom { border-bottom:1px dashed #000000; }
+main .box-body tfoot td { 
+    font-weight: bold;
+    border-bottom:1px dashed #000000; }
+main .box-body tbody td.none { border:0; }
+main .box-body tbody td.none p {
+	font-size: 12px;
+	font-family: Arial, Helvetica, Sans-serif;
+	line-height:20px; }
+main .box-body tbody td.none blockquote { margin:0.5 1.5em; padding:0; color: #000000; background:none; font-style: normal; border:none; }
+main .box-body tbody td.menu { width: 30px; }
+main .box-body tbody td.txtcenter, #box-body tfoot td.txtcenter { text-align: center; }
+main .box-body tbody td.txtright, #box-body tfoot td.txtright { text-align: right; }
+main .box-body tbody td.txtmiddle { vertical-align: middle; }
+main .box-body tbody td.terbilang { background:url('images/bg-terbilang.jpg'); font-style: italic; }
+
+main .box-footer { margin-top:20px; padding:0px; }
+main .box-footer .left { float:left; width:49%; vertical-align:top; text-align:center;}
+main .box-footer .left .nominal { width: 212px; height:41px; }
+main .box-footer .left label.nominal { position:absolute; top:5px; margin-left:-85px; display:inline-block; width:150px; text-align:left; font-size:24px; font-style:italic; }
+main .box-footer .right { float:right; width:49%; vertical-align:top; text-align:center; clear: right; }
+	
+/*------------------------------------------------*/
+/*---------------------[FOOTER]-------------------*/
+/*------------------------------------------------*/
+footer { position: fixed; bottom: 0cm; left: 1cm; right: 1cm; height: 0.8cm; }
+footer .note { text-align:right; font-size:8pt; font-style:italic;}

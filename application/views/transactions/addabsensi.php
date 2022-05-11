@@ -1,0 +1,226 @@
+<?php if ( ! defined("BASEPATH")) exit("No direct script access allowed"); 
+if (isset($datas) && $datas == true) 
+{
+	$id = ($datas->id != '-' ? $datas->id : set_value('txtid'));
+    $name = ($datas->nama != '-' ? $datas->nama : set_value('txtname'));
+	$position = ($datas->jabatan != '-' ? $datas->jabatan : set_value('txtposition'));    
+    $foto = ($datas->foto != '-' ? base_url().'arsip/photo/'.$datas->foto : base_url().'arsip/photo/nopicture.png');
+	$status = $datas->status;
+} 
+else 
+{
+	$id = set_value('txtid');
+    $name = set_value('txtname');
+	$position = set_value('txtposition');    
+	$foto = base_url().'arsip/photo/nopicture.png';    
+	$status = 'N';    
+} ?>
+<script type="text/javascript">    
+	$(document).ready(function()
+    {        
+		$("input:file").on("change", function(e) 
+        {
+            var formData = new FormData($('form')[1]); 
+            
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '<?php echo base_url();?>transactions/uploadtmp',
+                data: formData,
+                success: function(d) 
+                {
+                    console.log( JSON.stringify(d) );
+                    if (d.notif == 'modal-success')
+                    {
+                        var html = '<img style="margin:0;position:static;" src="<?php echo base_url();?>tmp/'+d.filename+'" width="122" height="122">';
+                        
+                        $('.preview').html(html);
+                        $('input:hidden[name=txtmp]').val( d.filename );
+                    }
+                    else
+                    {
+                        $("#frmdialog").removeClass().addClass("modal fade "+d.notif).modal("show")
+                            .find(".modal-title").html(d.title)
+                            .parent().parent().find(".modal-body p").html(d.messg)
+                            .parent().parent().find(".modal-footer button[name=btnclose]").attr("data-focus", d.elfocus);
+                    }
+                },
+                contentType: false,
+                processData: false,
+                error: function(xhr, ajaxOptions, thrownError) {
+                    /*alert(xhr.statusText);
+                    alert(xhr.responseText);*/
+                }
+            });
+            e.preventDefault();
+        });
+        
+        $("button[name=btnsimpan]").on("click", function(e) 
+        {
+            $("input:text").removeAttr("disabled");
+            var formData = new FormData($('form')[1]);
+            
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: "<?php echo base_url();?>transactions/updateabsensi",
+                data: formData,
+                success: function(d) 
+                {
+                    console.log(JSON.stringify(d));
+                    if (d.caption == "UBAH ABSENSI")
+                    {
+                        $.ajax({
+                            dataType: "html",
+                            url: "<?php echo base_url();?>transactions/absensi/<?php echo $search;?>/<?php echo $page;?>",
+                            beforeSend: function() {
+                                $(".content-wrapper").html("");
+                            },
+                            success: function(content) {
+                                $(".content-wrapper").html(content);
+                                
+                                $("#frmdialog").removeClass().addClass("modal fade "+d.notif).modal("show")
+                                    .find(".modal-title").html(d.title)
+                                    .parent().parent().find(".modal-body p").html(d.messg)
+                                    .parent().parent().find(".modal-footer button[name=btnclose]").attr("data-focus", d.elfocus);
+                            },
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                alert(xhr.statusText);
+                                alert(xhr.responseText);
+                            }
+                        });
+                    }
+                    else
+                    {
+                        if (d.notif == "modal-success")
+                        {
+                            $("input:text").val("").css({"background": "none", "color": "none", "font-style": "none"});                            
+                        }
+                        
+                        $("#frmdoutbox").removeClass().addClass("modal fade "+d.notif).modal("show")
+                            .find(".modal-title").html(d.title)
+                            .parent().parent().find(".modal-body p").html(d.messg)
+                            .parent().parent().find(".modal-footer button[name=btnclose]").attr("data-focus", d.elfocus);
+                        
+                        if (d.notif == "modal-danger" && d.elfocus == "newcode"){
+                            $("#txtnumber").empty().append("<option value='"+d.datacode+"'>"+d.datacode+"</option>").val(d.datacode);
+                        }
+                    }
+                },
+                contentType: false,
+                processData: false,
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.statusText);
+                    alert(xhr.responseText);
+               }
+            });
+            e.preventDefault();
+        });
+        
+        $("button[name=btnbatal]").on("click", function() 
+        {
+            $.ajax({
+                type: "post",
+                dataType: "html",
+                url: "<?php echo base_url();?>transactions/absensi/<?php echo $search?>/<?php echo $page?>",
+                beforeSend: function() {
+                    $(".content-wrapper").html("");
+                },
+                success: function(content) {
+                    $(".content-wrapper").html(content);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.statusText);
+                    alert(xhr.responseText);
+                }
+            });
+        });
+        
+        $(".preview").html("<img src='<?php echo $foto;?>' width='122' height='122'>");
+        
+        <?php if ($caption == "UBAH ABSENSI"):?>
+            <?php if (getAccess($this->session->userdata('SESS_USER_ID'), 'T4', 'edit') == 'N'):?>
+                $("input:text, select").each(function(){
+                    $(this).attr("disabled", true).css({"background-color": "#EEEEEE", "color": "#6D6D6D", "font-style": "italic"});
+                });
+                $("button[name=btnsimpan]").attr("disabled", true);
+                $("button[name=btnbatal]").attr("disabled", true);
+            <?php else:?>
+                $("#txtname").focused();
+            <?php endif;?>
+        <?php else:?>
+            <?php if (getAccess($this->session->userdata('SESS_USER_ID'), 'T4', 'new') == 'N'):?>
+                $("input:text, select").each(function(){
+                    $(this).attr("disabled", true).css({"background-color": "#EEEEEE", "color": "#6D6D6D", "font-style": "italic"});
+                });
+                $("button[name=btnsimpan]").attr("disabled", true);
+                $("button[name=btnbatal]").attr("disabled", true);
+            <?php else:?>
+                $("#txtcode").focused();
+            <?php endif;?>
+		<?php endif;?>
+    });	
+</script>
+<section class="content-header">
+    <h1><?php echo $mainpage;?><small><?php echo $caption;?></small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="<?php echo $iconpage;?>"></i> <?php echo $mainpage;?></a></li>
+        <?php if ($caption != ""):?>
+            <li class="active"><?php echo $caption?></li>
+        <?php endif?>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-hand-pointer-o"></i> <?php echo $caption?></h3>
+                    <div class="box-tools pull-right">
+                        <button name="btnbatal" type="reset" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                
+                <form class="form-horizontal" role="form" method="post" action="#" enctype="multipart/form-data">
+                    <div class="box-body">                    
+                        <?php echo form_hidden("caption", $caption);
+                        echo form_hidden("search", $search);
+                        echo form_hidden("page", $page);
+                        echo form_hidden("txtid", $id);
+                        echo form_hidden("txtmp");?>
+                        <div class="form-group">
+                            <label for="txtname" class="col-sm-3 control-label">Nama</label>
+                            <div class="col-sm-9"><input type="text" class="form-control" id="txtname" name="txtname" value="<?php echo (isset($name) ? $name : null);?>"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtposition" class="col-sm-3 control-label">Nomor</label>
+                            <div class="col-sm-9"><input class="form-control" type="text" id="txtposition" name="txtposition" value="<?php echo (isset($position) ? $position : null);?>"/></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtfile" class="col-sm-3 control-label">Foto</label>
+                            <div class="col-sm-12">
+                                <div class="preview" style="position:static;margin-left:auto;margin-right:auto;margin-bottom:25px;"><span>128 x 128px</span></div>
+                                <input style="width:85px;margin-left:auto;margin-right:auto;" type="file" id="txtfile" name="txtfile" accept="image/*" capture="camera">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    
+                    <div class="box-footer">
+                        <button name="btnsimpan" type="submit" class="btn bg-<?php echo $this->config->item('site_theme');?> visible-btn-lg"><i class="fa fa-save"></i><span class="inline-block margin-l-5 hidden-xs">Simpan</span></button>
+                        <?php if($caption == 'UBAH ABSENSI'):?>
+                            <button name="btnhapus" type="button" class="btn btn-danger visible-btn-lg hidden-lg hidden-md hidden-sm"><i class="fa fa-trash"></i></button>
+                        <?php endif;?>
+                        <button name="btnbatal" type="reset" class="btn btn-default hidden-xs"><i class="fa fa-remove"></i><span class="hidden-xs"> Tutup</span></button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

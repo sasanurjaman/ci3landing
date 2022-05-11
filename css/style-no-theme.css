@@ -1,0 +1,151 @@
+/*
+Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+*/
+
+html, body, h1, h2, h3, h4, h5, h6, div, span, blockquote, p, address, form, fieldset, img, ul, ol, dl, dt, dd, li, hr, table, td, th, strong, em, sup, sub, dfn, ins, del, q, cite, var, samp, code, kbd, tt, pre
+{
+	/* Font */
+	font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+body
+{
+	/* Text color */
+	color: #333;
+
+	/* Remove the background color to make it transparent */
+	background-color: #fff;
+
+	/*margin: 20px;*/
+}
+
+blockquote
+{
+	font-style: italic;
+	/*font-family: Georgia, Times, "Times New Roman", serif;*/
+	padding: 2px 0;
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 0;
+}
+
+a
+{
+	color: #0782C1;
+}
+
+ol,ul,dl
+{
+	/* IE7: reset rtl list margin. (#7334) */
+	/*margin-right: 0px;*/
+	/* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
+	padding: 0 40px;
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; line-height:normal; }
+h1 { font-size: 30pt; }
+h2 { font-size: 24pt; }
+h3 { font-size: 22pt; }
+h4 { font-size: 14pt; }
+h5 { font-size: 11pt; }
+h6 { font-size: 8pt; }
+
+hr
+{
+	border: 0px;
+	border-top: 1px solid #ccc;
+}
+
+img.right
+{
+	border: 1px solid #ccc;
+	float: right;
+	margin-left: 15px;
+	padding: 5px;
+}
+
+img.left
+{
+	border: 1px solid #ccc;
+	float: left;
+	margin-right: 15px;
+	padding: 5px;
+}
+
+pre
+{
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE7 */
+}
+
+.marker
+{
+	background-color: Yellow;
+}
+
+span[lang]
+{
+   font-style: italic;
+}
+
+figure
+{
+	text-align: center;
+	border: solid 1px #ccc;
+	border-radius: 2px;
+	background: rgba(0,0,0,0.05);
+	padding: 10px;
+	margin: 10px 20px;
+	display: inline-block;
+}
+
+figure > figcaption
+{
+	text-align: center;
+	display: block; /* For IE8 */
+}
+
+a > img {
+	padding: 1px;
+	margin: 1px;
+	outline: 1px solid #0782C1;
+}
+.clear { clear: both; }
+
+/*------------------------------------------------*/
+/*---------------[HEADER]---------------*/
+/*------------------------------------------------*/
+        #box-header	{ text-align: center; height:110px; margin:3px; padding:10px; border-bottom:2px solid #000000;}
+			#box-header img { float:left; }
+            #box-header div { margin-left:150px; }
+			#box-header h4 { text-align:center; font-weight:bold; position:relative; top:-35px; }
+            #box-header h5 { text-align:center; position:relative; top:-58px;}
+            #box-header h6 { text-align:center; position:relative; top:-75px; }
+
+            #box-body table.form-table { margin-bottom:10px; background: none; border:0px; border-collapse: collapse; padding: 0px; width: 500px;}
+			#box-body tr.form-field { background: none; }
+			#box-body table.form-table tbody tr:nth-child(2n+1) td, #box-body table.form-table tbody tr:hover td { background:none; }
+			#box-body table.form-table td { background: none; border:0; margin: 0px; padding: 5px 0px; line-height: 20px; width: 350px; }
+			#box-body table.form-table th { background: none; border:0; vertical-align: middle; text-align: left; padding: 0px; width: 150px; }
+			#box-body table.form-table td input[type=text], #box-body table.form-table td input[type=password] { width: 95%; }
+			#box-body table.form-table td input[type=text].disabled { background-color: #ECE9D8; }
+			#box-body table.form-table td input[type=text].datepicker{ background-image: url(images/datepicker.png);background-position: 84px center;background-repeat: no-repeat;width:95px; }
+			#box-body table.form-table td input[type=text].searchcode{ width:6%;text-align:center; }
+			#box-body table.form-table td input[type=text].searchname{ width:79%;padding-right:24px;background-image: url(images/form.png);background-position:99% center;background-repeat: no-repeat;}
+			#box-body table.form-table td input[type=text].searchfull{ background-image: url(images/form.png);background-position:99% center;background-repeat: no-repeat;}
+			#box-body table.form-table td input[type=submit] { float:right; width:70px; margin: 5px 5px 0 0;}
+			#box-body table.form-table td input[type=button] { float:right; width:70px; margin-top: 5px;}
+			#box-body table.form-table td input[type=reset] { float:right; width:70px; margin-top: 5px;}
+            #box-body table.form-table td textarea { resize:none; clear:left; width:95%; }
+			#box-body table.form-table td span.desc { color:#ff0000;font-size:10px; }
+			#box-body table.form-table td span.error-message { display:block;color:#ff0000;font-size:8pt; }
+			#box-body table.form-table tbody td img.logo { float:left;margin-right:7px;}
+            
+/*------------------------------------------------*/
+/*---------------------[FOOTER]-------------------*/
+/*------------------------------------------------*/
+#box-footer { width:100%; }
+	#footer-wrapper #desc-box { margin:5px; padding:0px; text-align:right; font-size:8pt; font-style:italic;}
