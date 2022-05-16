@@ -21,7 +21,7 @@ class Home extends CI_Controller
 		$data = $this->data;
         $data['caption'] = 'Beranda';
         $data['content'] = 'home/main';
-        $data['runvideo'] = $this->video_model->datarun();
+        $data['runvideo'] = $this->video_model->datarun();        
         
         $this->load->view('home', $data);
 	}

@@ -3,7 +3,7 @@ class Agenda_model extends CI_Model
 {
 	function datarun()
     {
-        $query = $this->db->query('SELECT id, DATE_FORMAT(tanggal, "%d %b %Y") AS tanggal, DATE_FORMAT(tanggal, "%H:%m") AS waktu, kegiatan, keterangan '.
+        $query = $this->db->query('SELECT id, DATE_FORMAT(tanggal, "%d %b %Y") AS tanggal, waktu, kegiatan, keterangan '.
         'FROM agenda WHERE status = "Y"');
         
 		if ($query->num_rows() > 0)

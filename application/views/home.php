@@ -126,8 +126,8 @@
                     {
                         /*console.log( JSON.stringify(d) );*/
                         $("#my-slide .devrama-slider .projector div").remove();
-                        $.each(d, function(n, item)
-                        {
+                        $.each(d, function(n, item)                        
+                        {                            
                             if (n == 0) {
                                 htmloop += "<div class='active' style='display:block;position:absolute;top:0%;left:0%;width:"+wDiv+"px;height:"+hDiv+"px;'>";
                                 htmloop += "<table class='table'>";
@@ -193,7 +193,7 @@
                     {
                         /*console.log( JSON.stringify(d) );*/
                         $.each(d, function(n, item)
-                        {
+                        {                            
                             htmlrun += "<div>";
                             htmlrun += "<table class='table'>";
                             htmlrun += "<tr><td width='20%'>Tanggal</td><td>: "+item.tanggal+"</td></tr>";
@@ -246,9 +246,9 @@
                                 htmloop += "<div class='profile-name'>"+item.nama+"</div>";
                                 htmloop += "<div class='profile-pos'>"+item.jabatan+"</div>";
                                 htmloop += "</td></tr>";
-                                htmloop += "<tr><td align='center'><span class='btn "+(item.status == "Y" ? "btn-success" : "btn-danger")+" btn-md'>";
-                                htmloop += "<strong>"+(item.status == "Y" ? "ADA" : "KELUAR")+"</strong>";
-                                htmloop += "</span></td></tr>";
+                                // htmloop += "<tr><td align='center'><span class='btn "+(item.status == "Y" ? "btn-success" : "btn-danger")+" btn-md'>";
+                                // htmloop += "<strong>"+(item.status == "Y" ? "ADA" : "KELUAR")+"</strong>";
+                                // htmloop += "</span></td></tr>";
                                 htmloop += "</tbody>";
                                 htmloop += "</table>";
                                 htmloop += "</div>";
@@ -261,9 +261,9 @@
                                 htmloop += "<div class='profile-name'>"+item.nama+"</div>";
                                 htmloop += "<div class='profile-pos'>"+item.jabatan+"</div>";
                                 htmloop += "</td></tr>";
-                                htmloop += "<tr><td align='center'><span class='btn "+(item.status == "Y" ? "btn-success" : "btn-danger")+" btn-md'>";
-                                htmloop += "<strong>"+(item.status == "Y" ? "ADA" : "KELUAR")+"</strong>";
-                                htmloop += "</span></td></tr>";
+                                // htmloop += "<tr><td align='center'><span class='btn "+(item.status == "Y" ? "btn-success" : "btn-danger")+" btn-md'>";
+                                // htmloop += "<strong>"+(item.status == "Y" ? "ADA" : "KELUAR")+"</strong>";
+                                // htmloop += "</span></td></tr>";
                                 htmloop += "</tbody>";
                                 htmloop += "</table>";
                                 htmloop += "</div>";
@@ -323,9 +323,9 @@
                             htmlrun += "<div class='profile-name'>"+item.nama+"</div>";
                             htmlrun += "<div class='profile-pos'>"+item.jabatan+"</div>";
                             htmlrun += "</td></tr>";
-                            htmlrun += "<tr><td align='center'><span class='btn "+(item.status == "Y" ? "btn-success" : "btn-danger")+" btn-md'>";
-                            htmlrun += "<strong>"+(item.status == "Y" ? "ADA" : "KELUAR")+"</strong>";
-                            htmlrun += "</span></td></tr>";
+                            // htmlrun += "<tr><td align='center'><span class='btn "+(item.status == "Y" ? "btn-success" : "btn-danger")+" btn-md'>";
+                            // htmlrun += "<strong>"+(item.status == "Y" ? "ADA" : "KELUAR")+"</strong>";
+                            // htmlrun += "</span></td></tr>";
                             htmlrun += "</tbody>";
                             htmlrun += "</table>";
                             htmlrun += "</div>";
